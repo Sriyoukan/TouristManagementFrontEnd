@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import {AuthService} from './../../services/auth.service';
 
 @Component({
   selector: 'app-user',
@@ -6,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  currentUser:any
+  userId:any
 
-  constructor() { }
+  constructor(private authService:AuthService) {
+    this.authService.currentUser.subscribe(x=>this.currentUser=x)
+    
+    
+    
+      
+         
+         
+  
+    }
+
+   
 
   ngOnInit(): void {
   }
+
+  
 
 }

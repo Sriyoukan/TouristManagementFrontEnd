@@ -53,4 +53,8 @@ export class AuthService {
 
   }
   
+  getUser(email){
+    return this.http.post<any>(`${this.apiUrl}/getUser`,{email})
+  }
+  
 }

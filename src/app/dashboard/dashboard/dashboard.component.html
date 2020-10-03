@@ -20,7 +20,7 @@
         <h3>Transportation</h3>
         <mat-chip  color="primary"   selected>{{b.transportationMethod}}</mat-chip>
         <mat-card-actions>
-            <button mat-raised-button color="primary" *ngIf="currentUser" (click)="register()">Register</button>
+            <button mat-raised-button color="primary"  *ngIf="currentUser" [disabled]="clicked" (click)="registerPackage(b.id)">Register</button>
         </mat-card-actions>
         
         

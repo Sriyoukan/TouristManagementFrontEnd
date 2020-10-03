@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { Routes, RouterModule} from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -25,6 +25,9 @@ import { SignUpComponent } from './signUp/sign-up/sign-up.component';
 import { RegisterTravelAgentComponent } from './registerTravelAgent/register-travel-agent/register-travel-agent.component';
 import { TravelAgentComponent } from './travelAgent/travel-agent/travel-agent.component';
 import {RegisterQuideComponent} from './registerQuide/register-quide/register-quide.component';
+import {TokenInterceptor} from './token.interceptor';
+import { from } from 'rxjs';
+import { RegisteredPackageComponent } from './registeredPackage/registered-package/registered-package.component';
 
 
 const routes: Routes = [
@@ -50,7 +53,8 @@ const routes: Routes = [
     SignUpComponent,
     RegisterTravelAgentComponent,
     TravelAgentComponent,
-    RegisterQuideComponent
+    RegisterQuideComponent,
+    RegisteredPackageComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +79,11 @@ const routes: Routes = [
     
   ],
   exports:[MatButtonModule,MatInputModule,MatCardModule],
-  providers: [AuthService,NavigationComponent],
+  providers: [AuthService,NavigationComponent,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
