@@ -13,6 +13,10 @@ import * as jwt_decode from "jwt-decode";
 export class AuthService {
   public currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
+  public currentUserTypeSubject: BehaviorSubject<any>;
+  public currentUserType: Observable<any>;
+  
+
   private apiUrl = 'http://localhost:8080';
   private userBody:any;
   
@@ -22,7 +26,9 @@ export class AuthService {
 
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
-
+    this.currentUserTypeSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUserType')));
+    this.currentUserType = this.currentUserTypeSubject.asObservable();
+    
    }
 
    login(email, password) {
@@ -33,6 +39,12 @@ export class AuthService {
         this.currentUserSubject.next(user);
         const helper = new JwtHelperService();
         this.userBody = helper.decodeToken(user.token);
+        for(const elements of this.userBody.roles){
+          let role = elements.role;
+          localStorage.setItem('currentUserType',JSON.stringify(role))
+          this.currentUserTypeSubject.next(role);
+
+        }
          
         
         return this.userBody;

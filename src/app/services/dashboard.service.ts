@@ -36,7 +36,7 @@ export class DashboardService {
         this.currentregisteredPackageSubject.next(pack);
     }))
 
-    return this.registerPackage
+    
 
   }
 

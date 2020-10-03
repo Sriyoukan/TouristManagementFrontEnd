@@ -30,16 +30,15 @@ export class LoginComponent implements OnInit {
     }
 
     this.authService.login(this.f.email.value,this.f.password.value)
-    .subscribe(data=>{
-       let roles = data.roles;
-       let role:any
-       for(const element of roles ){
-          role=element.role
-       }
-        this.router.navigate([`/${role}`])
+    .subscribe(data=>{ 
+      let role:any
+      for(const element of data.roles){
+        role = element.role
+      }
+      this.router.navigate([`/${role}`])
     })
 
-
+    
 }
 
 

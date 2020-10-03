@@ -10,17 +10,12 @@ import {AuthService} from './../../services/auth.service';
 export class UserComponent implements OnInit {
   currentUser:any
   userId:any
+  userType:any
 
   constructor(private authService:AuthService) {
-    this.authService.currentUser.subscribe(x=>this.currentUser=x)
-    
-    
-    
-      
-         
-         
-  
-    }
+    this.authService.currentUser.subscribe(x=>this.currentUser=x);
+    this.authService.currentUserType.subscribe(x=>this.userType=x)
+ }
 
    
 

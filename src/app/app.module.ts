@@ -26,27 +26,28 @@ import { RegisterTravelAgentComponent } from './registerTravelAgent/register-tra
 import { TravelAgentComponent } from './travelAgent/travel-agent/travel-agent.component';
 import {RegisterQuideComponent} from './registerQuide/register-quide/register-quide.component';
 import {TokenInterceptor} from './token.interceptor';
-import { from } from 'rxjs';
 import { RegisteredPackageComponent } from './registeredPackage/registered-package/registered-package.component';
 
 
 const routes: Routes = [
   
-  {path:'login',component:LoginComponent},
-  {path:'' , component: DashboardComponent },
+ {path:'login',component:LoginComponent},
+ {path:'' , component: DashboardComponent },
   {path:'ADMIN',component: AdminComponent},
-  {path:'USER',component:UserComponent},
+ {path:'USER',component:UserComponent},
   {path:'signUp',component:SignUpComponent},
   {path:'registerTravelAgent',component:RegisterTravelAgentComponent},
   {path:'TRAVELAGENT',component:TravelAgentComponent},
-  {path:'registerQuide',component:RegisterQuideComponent}
+  {path:'registerQuide',component:RegisterQuideComponent},
+  {path:'registeredPackage',component:RegisteredPackageComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
+    
     NavigationComponent,
+    DashboardComponent,
     LoginComponent,
     AdminComponent,
     UserComponent,
