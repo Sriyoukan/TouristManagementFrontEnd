@@ -27,6 +27,7 @@ import { TravelAgentComponent } from './travelAgent/travel-agent/travel-agent.co
 import {RegisterQuideComponent} from './registerQuide/register-quide/register-quide.component';
 import {TokenInterceptor} from './token.interceptor';
 import { RegisteredPackageComponent } from './registeredPackage/registered-package/registered-package.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 const routes: Routes = [
@@ -72,7 +73,9 @@ const routes: Routes = [
     MatButtonModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTabsModule
+
 
 
 

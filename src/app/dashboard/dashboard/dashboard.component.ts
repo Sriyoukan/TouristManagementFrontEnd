@@ -58,10 +58,12 @@ export class DashboardComponent implements OnInit {
   registerPackage(packId){
     this.dashBoardServices.registerPackage(this.userId,packId)
     .subscribe((data)=>{
-      this.message="Successfully Registered";
+      this.dashBoardServices.getAllRegisteredPackage(this.currentUser.username)
       
     })
     this.router.navigate(["/registeredPackage"])
   }
+
+  
 
 }

@@ -8,18 +8,7 @@
             <mat-card-title >{{b.name}}</mat-card-title>
             <mat-card-subtitle>District : {{b.district}}</mat-card-subtitle>
             
-            <h3>Places To Visit</h3>
-            <mat-chip-list    >
-                <mat-chip *ngFor="let c of b.placesToVisit" color="primary" selected>{{c}}</mat-chip>
-            </mat-chip-list>
-    
-            <h3>Hotels Available</h3>
-            <mat-chip-list    >
-                <mat-chip *ngFor="let c of b.hotelsAvailable" color="primary"   selected>{{c}}</mat-chip>
-            </mat-chip-list>
-    
-            <h3>Transportation</h3>
-            <mat-chip  color="primary"   selected>{{b.transportationMethod}}</mat-chip>
+            
 
             <h3>Status</h3>
             <mat-chip  color="warn" *ngIf="!b.isAccepted"  selected>Still not Accepted</mat-chip>
