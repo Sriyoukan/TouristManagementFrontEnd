@@ -5,7 +5,7 @@
     <button mat-raised-button color="primary" *ngIf="!currentUser" (click)="navigateToLogin()">login</button>
     <button mat-raised-button color="primary" *ngIf="!currentUser" (click)="navigateToSignUp()">signup</button>
     <button mat-raised-button color="primary" *ngIf="currentUser && userType=='ADMIN'" (click)="navigateToRegisterTravelAgent()">Register Agent</button>
-    <button mat-raised-button color="primary" *ngIf="userType=='TRAVELAGENT'" (click)="navigateToRegisterQuide()">Register Quide</button>
+    <button mat-raised-button color="primary" *ngIf="currentUser && userType=='TRAVELAGENT'" (click)="navigateToRegisterQuide()">Register Quide</button>
     <button mat-raised-button color="primary" *ngIf="currentUser && userType=='USER'" (click)="navigateToRegisteredPackage()">RegisteredPackage</button>
     <button mat-raised-button color="primary"  *ngIf="currentUser" (click)="logout()">logout</button>
 </mat-toolbar>

@@ -17,12 +17,49 @@
             
             </ul>
             </div>
+    </mat-tab>
+    <mat-tab label="Quides">
+        <div fxLayout="row wrap" fxLayoutGap="20px">
+            <ul *ngFor="let a of quideList">
+                <mat-card style="max-width: 300px; background-size: cover;" >
+                    <mat-card-title >{{a.name}}</mat-card-title>
+                    <mat-card-subtitle>email : {{a.email}}</mat-card-subtitle>
+                    <h4>MobileNo : {{a.mobileNo}}</h4>
+                  </mat-card>
+            </ul>
+            </div>
+    </mat-tab>
+        
+        
+        
+        
+    <mat-tab label="RegisteredPackageRequest">
+        <div >
+            <ul *ngFor="let a of newRequestList">
+                <mat-card style="background-size: cover;" >
+                    <mat-card-title >{{a.name}}</mat-card-title>
+                    <mat-card-subtitle>user : {{a.user.email}}</mat-card-subtitle>
+                    <h4>MobileNo : {{a.user.mobileNo}}</h4>
+                    <mat-card-actions>
+                        <button mat-raised-button color="primary" (click)="acceptPackage(a.id)"   >Accept</button>
+                    </mat-card-actions>
+                  </mat-card>
+            </ul>
+            </div>
+    </mat-tab>
 
-
-
+    <mat-tab label="RegisteredPackageAccepted">
+        <div >
+            <ul *ngFor="let a of acceptedList">
+                <mat-card style="background-size: cover;" >
+                    <mat-card-title >{{a.name}}</mat-card-title>
+                    <mat-card-subtitle>user : {{a.user.email}}</mat-card-subtitle>
+                    <h4>MobileNo : {{a.user.mobileNo}}</h4>
+                    
+                  </mat-card>
+            </ul>
+            </div>
 
 
     </mat-tab>
-    <mat-tab label="Quides">Content 2</mat-tab>
-    <mat-tab label="RegisteredPackage">Content 3</mat-tab>
 </mat-tab-group>

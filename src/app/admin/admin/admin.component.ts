@@ -11,11 +11,17 @@ export class AdminComponent implements OnInit {
   currentUser:any
   userType:any
   agentList:any
+  quideList:any
+  newRequestList:any
+  acceptedList:any
 
   constructor(private authService:AuthService,private dashBoardService:DashboardService) { 
     this.authService.currentUser.subscribe(x=>this.currentUser=x)
     this.authService.currentUserType.subscribe(x=>this.userType=x)
     this.getAllTravelAgent()
+    this.getAllQuide()
+    this.getAllNewPackageRequest()
+    this.getAcceptedPackage()
   }
 
   ngOnInit(): void {
@@ -26,5 +32,30 @@ export class AdminComponent implements OnInit {
       this.agentList=data;
     })
   }
+  getAllQuide(){
+    this.dashBoardService.getAllQuide()
+    .subscribe((data)=>{
+      this.quideList=data;
+    })
+  }
+  getAllNewPackageRequest(){
+    this.dashBoardService.getAllNewPackageRequest()
+    .subscribe((data)=>{
+      this.newRequestList=data;
+    })
+  }
+  acceptPackage(packId){
+    this.dashBoardService.acceptPackage(packId)
+    .subscribe((data)=>{
+      location.reload();
+    })
+  }
+  getAcceptedPackage(){
+    this.dashBoardService.getAllAcceptedPackage()
+    .subscribe((data)=>{
+      this.acceptedList=data
+    })
+  }
+
 
 }

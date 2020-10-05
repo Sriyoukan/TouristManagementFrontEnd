@@ -48,7 +48,19 @@ export class DashboardService {
   getAllTravelAgent(){
     return this.http.get<any>(`${this.apiUrl}/getTravelAgent`)
   }
+  getAllQuide(){
+    return this.http.get<any>(`${this.apiUrl}/getQuide`)
+  }
+  getAllNewPackageRequest(){
+    return this.http.get<any>(`${this.apiUrl}/getNewRequestsForPackages`)
+  }
+  acceptPackage(packId){
+    return this.http.post<any>(`${this.apiUrl}/addPackage`,{packId})
+  }
 
+  getAllAcceptedPackage(){
+    return this.http.get<any>(`${this.apiUrl}/acceptedPackage`)
+  }
 
 
 }
