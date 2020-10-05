@@ -28,6 +28,9 @@ import {RegisterQuideComponent} from './registerQuide/register-quide/register-qu
 import {TokenInterceptor} from './token.interceptor';
 import { RegisteredPackageComponent } from './registeredPackage/registered-package/registered-package.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { RegisterPackageComponent } from './registerPackage/register-package/register-package.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 const routes: Routes = [
@@ -40,7 +43,8 @@ const routes: Routes = [
   {path:'registerTravelAgent',component:RegisterTravelAgentComponent},
   {path:'TRAVELAGENT',component:TravelAgentComponent},
   {path:'registerQuide',component:RegisterQuideComponent},
-  {path:'registeredPackage',component:RegisteredPackageComponent}
+  {path:'registeredPackage',component:RegisteredPackageComponent},
+  {path:'registerPackage',component:RegisterPackageComponent}
 ]
 
 @NgModule({
@@ -56,7 +60,8 @@ const routes: Routes = [
     RegisterTravelAgentComponent,
     TravelAgentComponent,
     RegisterQuideComponent,
-    RegisteredPackageComponent
+    RegisteredPackageComponent,
+    RegisterPackageComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +79,8 @@ const routes: Routes = [
     MatInputModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule
 
 
 
@@ -87,7 +93,8 @@ const routes: Routes = [
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true
-  }],
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -35,6 +35,11 @@ export class NavigationComponent implements OnInit {
   navigateToRegisteredPackage(){
     this.router.navigate(["/registeredPackage"])
   }
+
+  navigateToRegisterPackage(){
+    this.router.navigate(["/registerPackage"])
+  }
+
   
   logout(){
     

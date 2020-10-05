@@ -62,4 +62,42 @@
 
 
     </mat-tab>
+    <mat-tab label="packages">
+    <div fxLayout="row wrap" fxLayoutGap="20px ">
+        <ul *ngFor="let b of packList">
+            
+        
+            <mat-card style="max-width: 300px; background-size: cover;" >
+                
+                <mat-card-title >{{b.name}}</mat-card-title>
+                <mat-card-subtitle>District : {{b.district}}</mat-card-subtitle>
+                <img mat-card-image src="https://upload.wikimedia.org/wikipedia/commons/6/61/Nallur_Kandasamy_front_entrance.jpg" alt="Photo of a Shiba Inu">
+                <h3>Places To Visit</h3>
+                <mat-chip-list    >
+                    <mat-chip *ngFor="let c of b.placesToVisit" color="primary" selected>{{c}}</mat-chip>
+                </mat-chip-list>
+        
+                <h3>Hotels Available</h3>
+                <mat-chip-list    >
+                    <mat-chip *ngFor="let c of b.hotelsAvailable" color="primary"   selected>{{c}}</mat-chip>
+                </mat-chip-list>
+        
+                <h3>Transportation</h3>
+                <mat-chip  color="primary"   selected>{{b.transportationMethod}}</mat-chip>
+                
+                <mat-card-actions>
+                    <button mat-raised-button color="primary"  (click)="registerPackage(b.id)">Delete</button>
+                    <button mat-button (click)="update(b)">Update</button>
+                </mat-card-actions>
+                
+                
+                
+              </mat-card>
+            
+        
+        
+        </ul>
+        </div>
+    </mat-tab>
+        
 </mat-tab-group>
