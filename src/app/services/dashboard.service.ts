@@ -69,6 +69,9 @@ export class DashboardService {
   updatePackage(id,name,placesToVisit,district,providerEmail,hotelsAvailable,transportationMethod){
     return this.http.post<any>(`${this.apiUrl}/packageUpdate`,{id,name,placesToVisit,district,providerEmail,hotelsAvailable,transportationMethod})
   }
+  deletePackage(packId){
+    return this.http.post<any>(`${this.apiUrl}/deletePackage`,{packId})
+  }
 
 
 }

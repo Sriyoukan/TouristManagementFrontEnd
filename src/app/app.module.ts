@@ -30,6 +30,9 @@ import { RegisteredPackageComponent } from './registeredPackage/registered-packa
 import {MatTabsModule} from '@angular/material/tabs';
 import { RegisterPackageComponent } from './registerPackage/register-package/register-package.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {UpdatePackage} from './admin/admin/admin.component';
+
+
 
 
 
@@ -50,7 +53,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    
+    UpdatePackage,
     NavigationComponent,
     DashboardComponent,
     LoginComponent,
@@ -88,7 +91,12 @@ const routes: Routes = [
 
     
   ],
-  exports:[MatButtonModule,MatInputModule,MatCardModule],
+  exports:[
+    MatButtonModule,
+    MatInputModule,
+    MatCardModule
+    
+  ],
   providers: [AuthService,NavigationComponent,{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
