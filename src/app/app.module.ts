@@ -31,6 +31,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { RegisterPackageComponent } from './registerPackage/register-package/register-package.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {UpdatePackage} from './admin/admin/admin.component';
+import { HomeComponent } from './home/home/home.component';
+
 
 
 
@@ -64,7 +66,8 @@ const routes: Routes = [
     TravelAgentComponent,
     RegisterQuideComponent,
     RegisteredPackageComponent,
-    RegisterPackageComponent
+    RegisterPackageComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +86,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatFormFieldModule,
     MatTabsModule,
-    MatDialogModule
+    MatDialogModule,
+    
+
 
 
 

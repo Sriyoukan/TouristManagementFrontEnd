@@ -4,6 +4,7 @@ import {AuthService} from './../../services/auth.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import {NavigationComponent} from './../../navigation/navigation/navigation.component';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 
@@ -15,6 +16,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class DashboardComponent implements OnInit {
      currentUser:any;
      userType:any;
+     formgroup:FormGroup
   
   public packList:any;
 

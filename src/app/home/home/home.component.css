@@ -1,0 +1,19 @@
+.image-dashboard{
+    min-width: 1330px;
+    justify-content: center;
+  }
+  
+  .input1{
+   border-style: hidden;
+   border-radius: 5px;
+  }
+  
+  .inquiry-container{
+  
+    border-radius: 5px;
+    justify-content: center;
+    height:40px;
+  }
+  .cardtitlefont{
+    color:#140d33;
+  }
