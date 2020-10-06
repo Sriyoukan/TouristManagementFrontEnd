@@ -8,7 +8,7 @@
 <mat-card  >
 <div fxLayout="column grid" fxLayoutGap="20px" style="justify-content: center; margin-top: 50px;">
 <ul *ngFor="let b of packList">
-    <mat-card style="min-width: 0px; max-height: 300px; background-size: cover;margin-left:200px !important; margin-right:200px !important;" fxLayout="row" fxLayoutGap="50px "  >
+    <mat-card style="min-width: 0px; max-height: 350px; background-size: cover;margin-left:200px !important; margin-right:200px !important;" fxLayout="row" fxLayoutGap="50px "  >
         <div>
         <mat-card-title >{{b.name}}</mat-card-title>
         <mat-card-subtitle>District : {{b.district}}</mat-card-subtitle>
@@ -29,7 +29,9 @@
         <h5>Transportation</h5>
         <mat-chip  color="primary"   selected>{{b.transportationMethod}}</mat-chip>
     </mat-card-content>
+    <span class="example-fill-remaining-space"></span>
     <mat-card-actions>
+      <span class="example-fill-remaining-space"></span>
         <button mat-raised-button color="primary"  *ngIf="currentUser" [disabled]="clicked" (click)="registerPackage(b.id)">Register</button>
     </mat-card-actions>
     

@@ -72,6 +72,9 @@ export class DashboardService {
   deletePackage(packId){
     return this.http.post<any>(`${this.apiUrl}/deletePackage`,{packId})
   }
+  getAllNotificationTravelAgent(email){
+    return this.http.post<any>(`${this.apiUrl}/getNotification`,{email})
+  }
 
 
 }

@@ -32,6 +32,7 @@ import { RegisterPackageComponent } from './registerPackage/register-package/reg
 import {MatDialogModule} from '@angular/material/dialog';
 import {UpdatePackage} from './admin/admin/admin.component';
 import { HomeComponent } from './home/home/home.component';
+import { NotificationComponent } from './notification/notification/notification.component';
 
 
 
@@ -67,7 +68,8 @@ const routes: Routes = [
     RegisterQuideComponent,
     RegisteredPackageComponent,
     RegisterPackageComponent,
-    HomeComponent
+    HomeComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,

@@ -71,7 +71,7 @@
                 
                 <mat-card-title >{{b.name}}</mat-card-title>
                 <mat-card-subtitle>District : {{b.district}}</mat-card-subtitle>
-                <img mat-card-image src="https://upload.wikimedia.org/wikipedia/commons/6/61/Nallur_Kandasamy_front_entrance.jpg" alt="Photo of a Shiba Inu">
+                <img mat-card-image [src]="b.imageUrl" alt="Photo of a Shiba Inu">
                 <h3>Places To Visit</h3>
                 <mat-chip-list    >
                     <mat-chip *ngFor="let c of b.placesToVisit" color="primary" selected>{{c}}</mat-chip>

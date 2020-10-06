@@ -1,4 +1,5 @@
-<mat-card>
+<div fxLayout="row wrap" fxLayoutGap="20px " >
+<mat-card style="width: 300px; background-size: cover; border: 1px solid blue;">
     <mat-card-title>Register Quide</mat-card-title>
 <mat-card-content>
 <form [formGroup]="registerQuideForm" (ngSubmit)="onSubmit()">
@@ -30,3 +31,4 @@
 </form>
 </mat-card-content>
 </mat-card>
+</div>

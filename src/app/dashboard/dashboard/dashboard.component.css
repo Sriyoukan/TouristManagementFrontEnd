@@ -112,4 +112,8 @@ border: 1px solid #cecece;
 .font1{
   color:white;
 }
+.example-fill-remaining-space {
+  
+  flex: 1 1 auto;
+}
   
