@@ -1,6 +1,10 @@
-<mat-toolbar color="primary">
+<mat-toolbar id="navbar" color="primary">
     <mat-icon>airport_shuttle</mat-icon>
     <span>My App</span>
+    <div>
+      <a href="#">Home</a>&nbsp;
+      <a href="#">About</a>
+    </div>
     <span class="example-spacer"></span>
     <span *ngIf="currentUser">{{currentUser.username}}</span>
     <span class="example-spacer"></span>
@@ -13,4 +17,19 @@
     <button mat-raised-button color="primary" *ngIf="currentUser && userType=='USER'" (click)="navigateToRegisteredPackage()">RegisteredPackage</button>
     <button mat-raised-button color="primary"  *ngIf="currentUser" (click)="logout()">logout</button>
 </mat-toolbar>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
 
