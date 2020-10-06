@@ -9,11 +9,13 @@
   
   }
  div {
+   
    margin-left: 30%;
  }
 
-.sticky {
+#navbar {
   position: fixed;
   top: 0;
   width: 100%;
 }
+ /* Add a top margin to main content to avoid content overlay */
