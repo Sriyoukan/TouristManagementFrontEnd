@@ -18,16 +18,16 @@
         <mat-card-content fxLayoutGap="20px">
         <h5>Places To Visit</h5>
         <mat-chip-list    >
-            <mat-chip *ngFor="let c of b.placesToVisit" color="primary" selected>{{c}}</mat-chip>
+            <mat-chip *ngFor="let c of b.placesToVisit" style="border: solid 1px blue;" >{{c}}</mat-chip>
         </mat-chip-list>
 
         <h5>Hotels Available</h5>
         <mat-chip-list    >
-            <mat-chip *ngFor="let c of b.hotelsAvailable" color="primary"   selected>{{c}}</mat-chip>
+            <mat-chip *ngFor="let c of b.hotelsAvailable" style="border: solid 1px blue;"   >{{c}}</mat-chip>
         </mat-chip-list>
 
         <h5>Transportation</h5>
-        <mat-chip  color="primary"   selected>{{b.transportationMethod}}</mat-chip>
+        <mat-chip  style="border: solid 1px blue;"   >{{b.transportationMethod}}</mat-chip>
     </mat-card-content>
     <span class="example-fill-remaining-space"></span>
     <mat-card-actions>

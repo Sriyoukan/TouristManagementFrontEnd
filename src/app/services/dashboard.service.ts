@@ -35,10 +35,8 @@ export class DashboardService {
 
   getAllRegisteredPackage(email){
     return this.http.post<any>(`${this.apiUrl}/getAllRegisteredPackage`,{email})
-    .pipe(map(pack=>{
-      localStorage.setItem('registeredPackage',JSON.stringify(pack))
-        this.currentregisteredPackageSubject.next(pack);
-    }))
+    
+    
 
     
     
@@ -74,6 +72,13 @@ export class DashboardService {
   }
   getAllNotificationTravelAgent(email){
     return this.http.post<any>(`${this.apiUrl}/getNotification`,{email})
+  }
+
+  sendNotificationToAllQuide(description,role,isRead,senderId){
+    return this.http.post<any>(`${this.apiUrl}/notification`,{description,role,isRead,senderId})
+  }
+  updateNotification(id){
+    return this.http.post<any>(`${this.apiUrl}/updateNotification`,{id})
   }
 
 

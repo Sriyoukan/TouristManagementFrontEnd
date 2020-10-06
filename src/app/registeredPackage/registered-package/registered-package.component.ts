@@ -15,18 +15,19 @@ export class RegisteredPackageComponent implements OnInit {
   constructor(private dashBoardServices:DashboardService,private authServices:AuthService) { 
     this.authServices.currentUser.subscribe(x=>this.currentUser=x)
     this.authServices.currentUserType.subscribe(x=>this.userType=x)
-    this.dashBoardServices.registeredPackage.subscribe(x=>this.registeredPackage=x)
-    if(this.currentUser){
-
-      this.dashBoardServices.getAllRegisteredPackage(this.currentUser.username)
-      .subscribe((data)=>{
-        this.dashBoardServices.registeredPackage.subscribe(x=>this.registeredPackage=x)
-      })
-    }
+    
+    
     
   }
 
   ngOnInit(): void {
+    if(this.currentUser){
+
+      this.dashBoardServices.getAllRegisteredPackage(this.currentUser.username)
+      .subscribe((data)=>{
+        this.registeredPackage=data
+      })
+    }
   }
 
 }
