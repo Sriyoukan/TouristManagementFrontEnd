@@ -2,6 +2,8 @@
     <mat-icon>airport_shuttle</mat-icon>
     <span>My App</span>
     <span class="example-spacer"></span>
+    <span *ngIf="currentUser">{{currentUser.username}}</span>
+    <span class="example-spacer"></span>
     <button mat-raised-button color="primary" *ngIf="!currentUser" (click)="navigateToLogin()">login</button>
     <button mat-raised-button color="primary" *ngIf="!currentUser" (click)="navigateToSignUp()">signup</button>
     <button mat-raised-button color="primary" *ngIf="currentUser && userType=='ADMIN'" (click)="navigateToRegisterTravelAgent()">Register Agent</button>

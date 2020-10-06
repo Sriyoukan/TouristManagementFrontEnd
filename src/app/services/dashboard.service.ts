@@ -62,8 +62,8 @@ export class DashboardService {
     return this.http.get<any>(`${this.apiUrl}/acceptedPackage`)
   }
 
-  registerNewPackage(name,placesToVisit,district,providerEmail,hotelsAvailable,transportationMethod){
-    return this.http.post<any>(`${this.apiUrl}/package`,{name,placesToVisit,district,providerEmail,hotelsAvailable,transportationMethod})
+  registerNewPackage(name,placesToVisit,district,providerEmail,hotelsAvailable,transportationMethod,imageUrl){
+    return this.http.post<any>(`${this.apiUrl}/package`,{name,placesToVisit,district,providerEmail,hotelsAvailable,transportationMethod,imageUrl})
     
   }
   updatePackage(id,name,placesToVisit,district,providerEmail,hotelsAvailable,transportationMethod){

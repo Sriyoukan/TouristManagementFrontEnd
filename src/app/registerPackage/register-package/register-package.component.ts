@@ -20,7 +20,8 @@ export class RegisterPackageComponent implements OnInit {
       district:[null,Validators.required],
       providerEmail:[null,Validators.required],
       hotelsAvailable:[null],
-      transportationMethod:[null,Validators.required]
+      transportationMethod:[null,Validators.required],
+      imageUrl:[null,Validators.required]
     })
   }
   get f(){ return this.registerNewPackageForm.controls}
@@ -30,7 +31,7 @@ export class RegisterPackageComponent implements OnInit {
       return;
     }
 
-    this.dashBoardService.registerNewPackage(this.f.name.value,this.placesToVisitArray,this.f.district.value,this.f.providerEmail.value,this.hotelsAvailableArray,this.f.transportationMethod.value)
+    this.dashBoardService.registerNewPackage(this.f.name.value,this.placesToVisitArray,this.f.district.value,this.f.providerEmail.value,this.hotelsAvailableArray,this.f.transportationMethod.value,this.f.imageUrl.value)
     .subscribe(data=>{ 
       
       
@@ -42,10 +43,12 @@ export class RegisterPackageComponent implements OnInit {
 addPlaceArray(){
   this.placesToVisitArray.push(this.f.placesToVisit.value)
   this.f.placesToVisit.setValue(null)
+  return false
 }
 addHotelArray(){
   this.hotelsAvailableArray.push(this.f.hotelsAvailable.value)
   this.f.hotelsAvailable.setValue(null)
+  return false
 }
 
 }

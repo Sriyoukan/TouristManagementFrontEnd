@@ -1,13 +1,16 @@
 <app-navigation [currentUser]="currentUser" [userType]="userType"></app-navigation>
-<div fxLayout="row wrap" fxLayoutGap="20px grid">
+<div fxLayout="column" fxLayoutGap="20px ">
 <ul *ngFor="let b of packList">
     
 
-    <mat-card style="max-width: 300px; background-size: cover;" >
-        
+    <mat-card style="min-width: 0px; max-height: 3300px; background-size: cover;" fxLayout="row" fxLayoutGap="50px "  >
+        <div>
         <mat-card-title >{{b.name}}</mat-card-title>
         <mat-card-subtitle>District : {{b.district}}</mat-card-subtitle>
-        <img mat-card-image src="https://upload.wikimedia.org/wikipedia/commons/6/61/Nallur_Kandasamy_front_entrance.jpg" alt="Photo of a Shiba Inu">
+        <img mat-card-image style="max-width: 300px;" [src]="b.imageUrl">
+    </div>
+        <div>
+        <mat-card-content>
         <h3>Places To Visit</h3>
         <mat-chip-list    >
             <mat-chip *ngFor="let c of b.placesToVisit" color="primary" selected>{{c}}</mat-chip>
@@ -20,9 +23,14 @@
 
         <h3>Transportation</h3>
         <mat-chip  color="primary"   selected>{{b.transportationMethod}}</mat-chip>
-        <mat-card-actions>
-            <button mat-raised-button color="primary"  *ngIf="currentUser" [disabled]="clicked" (click)="registerPackage(b.id)">Register</button>
-        </mat-card-actions>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary"  *ngIf="currentUser" [disabled]="clicked" (click)="registerPackage(b.id)">Register</button>
+    </mat-card-actions>
+    
+</div>
+
+        
         
         
         
