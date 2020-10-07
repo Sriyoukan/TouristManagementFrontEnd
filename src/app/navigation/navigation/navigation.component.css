@@ -1,3 +1,17 @@
 .example-spacer {
     flex: 1 1 auto;
   }
+.center-navitem{
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 0;
+}
+.center-navitem li{
+  padding: 0 1rem;
+}
+.navbar{
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
