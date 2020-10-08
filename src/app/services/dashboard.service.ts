@@ -74,11 +74,15 @@ export class DashboardService {
     return this.http.post<any>(`${this.apiUrl}/getNotification`,{email})
   }
 
-  sendNotificationToAllQuide(description,role,isRead,senderId){
-    return this.http.post<any>(`${this.apiUrl}/notification`,{description,role,isRead,senderId})
+  sendNotificationToAllQuide(description,role,isRead,senderEmail,relatedPackId){
+    return this.http.post<any>(`${this.apiUrl}/notification`,{description,role,isRead,senderEmail,relatedPackId})
   }
   updateNotification(id){
     return this.http.post<any>(`${this.apiUrl}/updateNotification`,{id})
+  }
+
+  quideReceiveNotification(){
+    return this.http.get<any>(`${this.apiUrl}/getQuideNotification`)
   }
 
 

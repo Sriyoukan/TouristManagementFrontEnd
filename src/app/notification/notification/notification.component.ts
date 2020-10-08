@@ -23,8 +23,8 @@ export class NotificationComponent implements OnInit {
     })
   }
 
-  sendNotification(id,senderId){
-    this.dashboardService.sendNotificationToAllQuide("New request from the user arrived","QUIDE",true,senderId)
+  sendNotification(id,relatedPackId){
+    this.dashboardService.sendNotificationToAllQuide("New request from the user arrived","QUIDE",true,this.currentUser.username,relatedPackId)
     .subscribe((data)=>{
       this.dashboardService.updateNotification(id)
     .subscribe((data)=>{

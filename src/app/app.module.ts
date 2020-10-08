@@ -33,6 +33,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {UpdatePackage} from './admin/admin/admin.component';
 import { HomeComponent } from './home/home/home.component';
 import { NotificationComponent } from './notification/notification/notification.component';
+import { QuideComponent } from './quide/quide/quide.component';
 
 
 
@@ -50,7 +51,8 @@ const routes: Routes = [
   {path:'TRAVELAGENT',component:TravelAgentComponent},
   {path:'registerQuide',component:RegisterQuideComponent},
   {path:'registeredPackage',component:RegisteredPackageComponent},
-  {path:'registerPackage',component:RegisterPackageComponent}
+  {path:'registerPackage',component:RegisterPackageComponent},
+  {path:'QUIDE', component:QuideComponent}
 ]
 
 @NgModule({
@@ -69,7 +71,8 @@ const routes: Routes = [
     RegisteredPackageComponent,
     RegisterPackageComponent,
     HomeComponent,
-    NotificationComponent
+    NotificationComponent,
+    QuideComponent
   ],
   imports: [
     BrowserModule,
