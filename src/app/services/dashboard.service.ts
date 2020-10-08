@@ -74,8 +74,8 @@ export class DashboardService {
     return this.http.post<any>(`${this.apiUrl}/getNotification`,{email})
   }
 
-  sendNotificationToAllQuide(description,role,isRead,senderEmail,relatedPackId){
-    return this.http.post<any>(`${this.apiUrl}/notification`,{description,role,isRead,senderEmail,relatedPackId})
+  sendNotificationToAllQuide(description,isRead,senderEmail,role,relatedPackId){
+    return this.http.post<any>(`${this.apiUrl}/notification`,{description,isRead,senderEmail,role,relatedPackId})
   }
   updateNotification(id){
     return this.http.post<any>(`${this.apiUrl}/updateNotification`,{id})
@@ -83,6 +83,10 @@ export class DashboardService {
 
   quideReceiveNotification(){
     return this.http.get<any>(`${this.apiUrl}/getQuideNotification`)
+  }
+
+  sendAcceptedRequest(senderEmail,receiverEmail,relatedPackId){
+    return this.http.post<any>(`${this.apiUrl}/acceptTour`,{senderEmail,receiverEmail,relatedPackId})
   }
 
 

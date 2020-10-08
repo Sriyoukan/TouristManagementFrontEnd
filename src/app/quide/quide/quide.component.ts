@@ -26,4 +26,16 @@ export class QuideComponent implements OnInit {
     })
   }
 
+  acceptTour(id,receiverEmail,relatedPackId){
+    this.dashboardService.sendAcceptedRequest(this.currentUser.username,receiverEmail,relatedPackId)
+    .subscribe((data)=>{
+      this.dashboardService.updateNotification(id)
+      .subscribe((data)=>{
+        location.reload()
+      })
+    })
+
+    
+  }
+
 }

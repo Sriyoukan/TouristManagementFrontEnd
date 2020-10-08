@@ -7,7 +7,7 @@
             
             <h6>{{b.description}}</h6>
             <mat-card-subtitle> {{b.time}}</mat-card-subtitle>
-           
+            <button  mat-button style="border: 1px solid blue;" *ngIf="!b.read && userType=='QUIDE'" (click)="acceptTour(b.id,b.senderEmail,b.relatedPackId)">Notify TravelAgent</button>
             
           </mat-card>
           

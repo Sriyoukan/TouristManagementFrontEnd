@@ -7,6 +7,10 @@
             
             <h6>{{b.description}}</h6>
             <mat-card-subtitle> {{b.time}}</mat-card-subtitle>
+            <mat-card-subtitle> {{b.relatedPackId}}</mat-card-subtitle>
+            <mat-card-subtitle> {{b.senderEmail}}</mat-card-subtitle>
+
+
             <span class="example-fill-remaining-space"></span>
           <button  mat-button style="border: 1px solid blue;" *ngIf="!b.read && userType=='TRAVELAGENT'" (click)="sendNotification(b.id,b.relatedPackId)">Notify Quide</button>
             
