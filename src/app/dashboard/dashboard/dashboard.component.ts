@@ -8,6 +8,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -20,14 +21,15 @@ export class DashboardComponent implements OnInit {
   
   public packList:any;
 
- 
+ reviewForm:FormGroup
   userId:any;
   headers:any;
   message:any;
   clicked = false;
   registeredPackage:any
+  reviews:any
 
-  constructor(private dashBoardServices:DashboardService,private authService:AuthService,private navigation:NavigationComponent,private router:Router) {
+  constructor(private dashBoardServices:DashboardService,private authService:AuthService,private navigation:NavigationComponent,private router:Router,private formBuilder:FormBuilder) {
     this.authService.currentUser.subscribe(x=>this.currentUser=x)
     this.authService.currentUserType.subscribe(x=>this.userType=x)
     if(this.currentUser){
@@ -55,6 +57,28 @@ export class DashboardComponent implements OnInit {
     .subscribe((data)=>{
         this.packList=data;
     })
+
+    this.dashBoardServices.getReviews()
+    .subscribe((data)=>{
+      this.reviews = data
+    })
+
+    this.reviewForm = this.formBuilder.group({
+      description:[null,Validators.required]
+    })
+  }
+  get f(){ return this.reviewForm.controls}
+
+  onSubmit(){
+    if (this.reviewForm.invalid) {
+      return;
+    }
+
+    this.dashBoardServices.sendReviews(this.currentUser.username,this.f.description.value)
+    .subscribe((data)=>{
+      this.f.description.setValue(null);
+      location.reload()
+    })
   }
 
   registerPackage(packId){
@@ -64,6 +88,13 @@ export class DashboardComponent implements OnInit {
       
     })
     this.router.navigate(["/registeredPackage"])
+  }
+
+  deleteReview(id){
+    this.dashBoardServices.deleteReview(id)
+    .subscribe((data)=>{
+      location.reload()
+    })
   }
 
   

@@ -89,5 +89,17 @@ export class DashboardService {
     return this.http.post<any>(`${this.apiUrl}/acceptTour`,{senderEmail,receiverEmail,relatedPackId})
   }
 
+  getReviews(){
+    return this.http.get<any>(`${this.apiUrl}/getAllReviews`)
+  }
+
+  sendReviews(userEmail,description){
+    return this.http.post<any>(`${this.apiUrl}/sendReview`,{userEmail,description})
+  }
+
+  deleteReview(id){
+    return this.http.post<any>(`${this.apiUrl}/deleteReview`,{id})
+  }
+
 
 }

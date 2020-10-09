@@ -5,8 +5,8 @@
 <div class='headerMRP' style="margin-top: 50px;">
     <h2>Most Requested Packages</h2>
 </div>
-<mat-card  >
-<div fxLayout="column grid" fxLayoutGap="20px" style="justify-content: center; margin-top: 50px;">
+<mat-card >
+<div fxLayout="column " fxLayoutGap="20px grid" style="justify-content: center; margin-top: 50px;">
 <ul *ngFor="let b of packList">
     <mat-card style="min-width: 0px; max-height: 350px; background-size: cover;margin-left:200px !important; margin-right:200px !important;" fxLayout="row" fxLayoutGap="50px "  >
         <div>
@@ -50,28 +50,51 @@
 </mat-card>
 </div>
 <br>
+
+
 <div class='headerReview'>
   <h2>
     Reviews
   </h2>
 </div>
-<div *ngFor="let number of [0,1]" class="reviews">
+<div *ngFor="let b of reviews" class="reviews" >
   <div class="row blockquote review-item">
     <div class="col-md-3 text-center">
       <img class="rounded-circle reviewer" src="http://standaloneinstaller.com/upload/avatar.png">
       <div class="caption">
-        <small>by Joe</small>
+        <small>{{b.userEmail}}</small>
       </div>
+      <p class="button" *ngIf="b.userEmail==currentUser.username" style="margin-top: 10px;">
+        <button   mat-button color="primary" style="border: solid 1px blue;" (click)="deleteReview(b.id)">delete</button>
+      </p>
     </div>
     <div class="col-md-9">
-      <h4>My awesome review</h4>
+      <h4>{{b.userEmail}}</h4>
       <div class="ratebox text-center" data-id="0" data-rating="5"></div>
-      <p class="review-text">My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. </p>
-      <small class="review-date">March 26, 2017</small>
+      <p class="review-text">{{b.description}}</p>
+      <small class="review-date">{{b.time}}</small>
     </div>
+
   </div>
 </div>
 <br>
+
+<div class="review" *ngIf="currentUser">
+<form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+<p>
+
+
+  <mat-form-field style="width: 600px;">
+    <input type="text" matInput placeholder="Description" formControlName="description">
+  </mat-form-field>
+</p>
+<p class="button">
+  <button type="submit"  mat-button color="primary" style="border: solid 1px blue;">Add review</button>
+</p>
+</form>
+</div>
+
+
 
 <!--<div class="container">
     <form class="form-inline">
