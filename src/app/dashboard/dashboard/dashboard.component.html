@@ -64,7 +64,7 @@
       <div class="caption">
         <small>{{b.userEmail}}</small>
       </div>
-      <p class="button" *ngIf="b.userEmail==currentUser.username" style="margin-top: 10px;">
+      <p class="button" *ngIf="currentUser && b.userEmail==currentUser.username" style="margin-top: 10px;">
         <button   mat-button color="primary" style="border: solid 1px blue;" (click)="deleteReview(b.id)">delete</button>
       </p>
     </div>
