@@ -34,6 +34,7 @@ import {UpdatePackage} from './admin/admin/admin.component';
 import { HomeComponent } from './home/home/home.component';
 import { NotificationComponent } from './notification/notification/notification.component';
 import { QuideComponent } from './quide/quide/quide.component';
+import {AuthGuard} from './auth.guard';
 
 
 
@@ -44,15 +45,15 @@ const routes: Routes = [
   
  {path:'login',component:LoginComponent},
  {path:'' , component: DashboardComponent },
-  {path:'ADMIN',component: AdminComponent},
- {path:'USER',component:UserComponent},
+  {path:'ADMIN',component: AdminComponent,canActivate: [AuthGuard],data: { roles: ['ADMIN']}},
+ {path:'USER',component:UserComponent,canActivate: [AuthGuard],data: { roles: ['USER']}},
   {path:'signUp',component:SignUpComponent},
-  {path:'registerTravelAgent',component:RegisterTravelAgentComponent},
-  {path:'TRAVELAGENT',component:TravelAgentComponent},
-  {path:'registerQuide',component:RegisterQuideComponent},
-  {path:'registeredPackage',component:RegisteredPackageComponent},
-  {path:'registerPackage',component:RegisterPackageComponent},
-  {path:'QUIDE', component:QuideComponent}
+  {path:'registerTravelAgent',component:RegisterTravelAgentComponent,canActivate: [AuthGuard],data: { roles: ['ADMIN']}},
+  {path:'TRAVELAGENT',component:TravelAgentComponent,canActivate: [AuthGuard],data: { roles: ['TRAVELAGENT']}},
+  {path:'registerQuide',component:RegisterQuideComponent,canActivate: [AuthGuard],data: { roles: ['TRAVELAGENT']}},
+  {path:'registeredPackage',component:RegisteredPackageComponent,canActivate: [AuthGuard],data: { roles: ['USER']}},
+  {path:'registerPackage',component:RegisterPackageComponent,canActivate: [AuthGuard],data: { roles: ['ADMIN']}},
+  {path:'QUIDE', component:QuideComponent,canActivate: [AuthGuard],data: { roles: ['QUIDE']}}
 ]
 
 @NgModule({

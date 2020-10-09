@@ -11,10 +11,21 @@ import * as jwt_decode from 'jwt-decode';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+ currentUser:any
+ userType:any
 
   loginForm:FormGroup;
-  constructor(private authService:AuthService,private formBuilder:FormBuilder,private router:Router) { }
+  constructor(private authService:AuthService,private formBuilder:FormBuilder,private router:Router) {
+      this.authService.currentUser.subscribe(x=>this.currentUser=x)
+      this.authService.currentUserType.subscribe(x=>this.userType=x)
+
+
+      if(this.currentUser){
+        this.router.navigate([`/${this.userType}`])
+      }
+
+
+   }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
