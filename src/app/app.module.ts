@@ -36,6 +36,9 @@ import { NotificationComponent } from './notification/notification/notification.
 import { QuideComponent } from './quide/quide/quide.component';
 import {AuthGuard} from './auth.guard';
 
+import {AlertComponent} from './alert/alert.component';
+import { CommonModule } from '@angular/common';
+
 
 
 
@@ -73,7 +76,8 @@ const routes: Routes = [
     RegisterPackageComponent,
     HomeComponent,
     NotificationComponent,
-    QuideComponent
+    QuideComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -94,6 +98,8 @@ const routes: Routes = [
     MatTabsModule,
     MatDialogModule,
     
+    CommonModule
+    
 
 
 
@@ -105,7 +111,8 @@ const routes: Routes = [
   exports:[
     MatButtonModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    AlertComponent
     
   ],
   providers: [AuthService,NavigationComponent,{

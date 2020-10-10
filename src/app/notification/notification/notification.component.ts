@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DashboardService} from './../../services/dashboard.service'
 import {AuthService} from './../../services/auth.service'
 import { Router, ActivatedRoute } from '@angular/router';
+import {AlertService} from './../../services/alert.service'
 @Component({
   selector: 'app-notification',
   templateUrl: './notification.component.html',
@@ -11,7 +12,7 @@ export class NotificationComponent implements OnInit {
   notification:any
   currentUser:any
   userType:any
-  constructor(private dashboardService:DashboardService,private authService:AuthService , private router:Router) {
+  constructor(private dashboardService:DashboardService,private authService:AuthService , private router:Router,private alertService: AlertService) {
     this.authService.currentUser.subscribe(x=>this.currentUser=x)
     this.authService.currentUserType.subscribe(x=>this.userType=x)
    }
@@ -29,6 +30,7 @@ export class NotificationComponent implements OnInit {
       this.dashboardService.updateNotification(id)
     .subscribe((data)=>{
       location.reload()
+      this.alertService.success("Successfully Sent")
     })
 
     })

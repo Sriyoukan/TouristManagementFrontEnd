@@ -14,7 +14,8 @@ export class UserComponent implements OnInit {
 
   constructor(private authService:AuthService) {
     this.authService.currentUser.subscribe(x=>this.currentUser=x);
-    this.authService.currentUserType.subscribe(x=>this.userType=x)
+    this.authService.currentUserType.subscribe(x=>this.userType=x);
+    
  }
 
    

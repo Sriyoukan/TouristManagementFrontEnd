@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DashboardService} from './../../services/dashboard.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import {AlertService} from './../../services/alert.service'
 @Component({
   selector: 'app-register-package',
   templateUrl: './register-package.component.html',
@@ -11,7 +12,7 @@ export class RegisterPackageComponent implements OnInit {
   registerNewPackageForm:FormGroup
   placesToVisitArray= new Array<String>()
   hotelsAvailableArray=new Array<String>()
-  constructor(private dashBoardService:DashboardService,private formBuilder:FormBuilder,private router:Router) { }
+  constructor(private dashBoardService:DashboardService,private formBuilder:FormBuilder,private router:Router,private alertService:AlertService) { }
 
   ngOnInit(): void {
     this.registerNewPackageForm = this.formBuilder.group({
@@ -33,9 +34,8 @@ export class RegisterPackageComponent implements OnInit {
 
     this.dashBoardService.registerNewPackage(this.f.name.value,this.placesToVisitArray,this.f.district.value,this.f.providerEmail.value,this.hotelsAvailableArray,this.f.transportationMethod.value,this.f.imageUrl.value)
     .subscribe(data=>{ 
-      
-      
       this.router.navigate([`/ADMIN`])
+      this.alertService.success("Successfully registered")
     })
 
     

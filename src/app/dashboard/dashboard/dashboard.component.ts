@@ -5,6 +5,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import {NavigationComponent} from './../../navigation/navigation/navigation.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {AlertService} from './../../services/alert.service'
 
 
 
@@ -29,13 +30,15 @@ export class DashboardComponent implements OnInit {
   registeredPackage:any
   reviews:any
 
-  constructor(private dashBoardServices:DashboardService,private authService:AuthService,private navigation:NavigationComponent,private router:Router,private formBuilder:FormBuilder) {
+  constructor(private dashBoardServices:DashboardService,private authService:AuthService,private navigation:NavigationComponent,private router:Router,private formBuilder:FormBuilder,private alertService:AlertService) {
     this.authService.currentUser.subscribe(x=>this.currentUser=x)
     this.authService.currentUserType.subscribe(x=>this.userType=x)
+    
     if(this.currentUser){
       this.authService.getUser(this.currentUser.username)
       .subscribe((data)=>{
         this.userId=data.id
+        
       })
 
 
@@ -53,6 +56,12 @@ export class DashboardComponent implements OnInit {
    
 
   ngOnInit(): void {
+    if(this.currentUser){
+    this.dashBoardServices.getAllRegisteredPackage(this.currentUser.username)
+    .subscribe((data)=>{
+      this.registeredPackage=data
+    })
+  }
     this.dashBoardServices.getAllPackage()
     .subscribe((data)=>{
         this.packList=data;
@@ -85,6 +94,10 @@ export class DashboardComponent implements OnInit {
     this.dashBoardServices.registerPackage(this.userId,packId)
     .subscribe((data)=>{
       this.dashBoardServices.getAllRegisteredPackage(this.currentUser.username)
+      .subscribe((data)=>{
+        this.registeredPackage=data
+        this.alertService.success("Success Fully Registered")
+      })
       
     })
     this.router.navigate(["/registeredPackage"])

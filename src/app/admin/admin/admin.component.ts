@@ -6,6 +6,7 @@ import {MatDialog, MatDialogConfig, MatDialogRef} from '@angular/material/dialog
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {AlertService} from './../../services/alert.service'
 
 
 @Component({
@@ -23,7 +24,7 @@ export class AdminComponent implements OnInit {
   packList:any
   selectedPack:any
 
-  constructor(private authService:AuthService,private dashBoardService:DashboardService,private router:Router,public dialog: MatDialog) { 
+  constructor(private authService:AuthService,private dashBoardService:DashboardService,private router:Router,public dialog: MatDialog,private alertService:AlertService) { 
     this.authService.currentUser.subscribe(x=>this.currentUser=x)
     this.authService.currentUserType.subscribe(x=>this.userType=x)
     this.getAllTravelAgent()
@@ -60,6 +61,7 @@ export class AdminComponent implements OnInit {
     this.dashBoardService.acceptPackage(packId)
     .subscribe((data)=>{
       location.reload();
+      this.alertService.success("Accepted Successfully")
     })
   }
   getAcceptedPackage(){
@@ -85,7 +87,8 @@ export class AdminComponent implements OnInit {
     this.dashBoardService.deletePackage(packId)
     .subscribe((data)=>{
       location.reload()
-    })
+      this.alertService.success("Successfully Deleted")
+    },(err)=>{this.alertService.error("Some error occured")})
   }
 
 
@@ -101,7 +104,7 @@ export class UpdatePackage implements OnInit{
   removable = true;
   placesToVisitArray= new Array<String>()
   hotelsAvailableArray=new Array<String>()
-  constructor(public dialogRef: MatDialogRef<UpdatePackage>,@Inject(MAT_DIALOG_DATA) public data: any,private formBuilder:FormBuilder,private dashBoardService:DashboardService){
+  constructor(public dialogRef: MatDialogRef<UpdatePackage>,@Inject(MAT_DIALOG_DATA) public data: any,private formBuilder:FormBuilder,private dashBoardService:DashboardService,private alertService:AlertService){
     
     this.placesToVisitArray=this.data.placesToVisit
     this.hotelsAvailableArray=this.data.hotelsAvailable
@@ -126,8 +129,9 @@ export class UpdatePackage implements OnInit{
 
     this.dashBoardService.updatePackage(this.data.id,this.f.name.value,this.placesToVisitArray,this.f.district.value,this.f.providerEmail.value,this.hotelsAvailableArray,this.f.transportationMethod.value)
     .subscribe(data=>{ 
-      location.reload()
       
+      this.alertService.success("Successfully Updated")
+      location.reload();
       
     })
 

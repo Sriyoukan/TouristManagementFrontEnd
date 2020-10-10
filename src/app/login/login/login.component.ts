@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 import * as jwt_decode from 'jwt-decode';
-
+import {AlertService} from './../../services/alert.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
  userType:any
 
   loginForm:FormGroup;
-  constructor(private authService:AuthService,private formBuilder:FormBuilder,private router:Router) {
+  constructor(private authService:AuthService,private formBuilder:FormBuilder,private router:Router,private alertService:AlertService) {
       this.authService.currentUser.subscribe(x=>this.currentUser=x)
       this.authService.currentUserType.subscribe(x=>this.userType=x)
 
@@ -47,6 +47,9 @@ export class LoginComponent implements OnInit {
         role = element.role
       }
       this.router.navigate([`/${role}`])
+      this.alertService.success('SuccessFully loggedIn !');
+    },(err)=>{
+      this.alertService.error("Invalid credentials")
     })
 
     

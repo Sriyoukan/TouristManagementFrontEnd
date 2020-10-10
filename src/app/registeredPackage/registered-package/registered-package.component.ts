@@ -18,16 +18,17 @@ export class RegisteredPackageComponent implements OnInit {
     
     
     
+    
+    
+    
   }
 
   ngOnInit(): void {
-    if(this.currentUser){
-
-      this.dashBoardServices.getAllRegisteredPackage(this.currentUser.username)
-      .subscribe((data)=>{
-        this.registeredPackage=data
-      })
-    }
+    this.dashBoardServices.getAllRegisteredPackage(this.currentUser.username)
+    .subscribe((data)=>{
+      this.registeredPackage=data
+    })
+    
   }
 
 }

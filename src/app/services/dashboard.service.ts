@@ -37,6 +37,8 @@ export class DashboardService {
     return this.http.post<any>(`${this.apiUrl}/getAllRegisteredPackage`,{email})
     
     
+    
+    
 
     
     
