@@ -3,6 +3,9 @@
     justify-content: center;
   }
   
+.img-top{
+  margin-top: 4rem;
+}
   .input1{
    border-style: hidden;
    border-radius: 5px;

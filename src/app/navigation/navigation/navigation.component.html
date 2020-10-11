@@ -1,19 +1,26 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="navbar">
     <mat-toolbar-row>
-    <mat-icon>airport_shuttle</mat-icon>
-    <span>My App</span>
-    <span class="example-spacer"></span>
-    <span *ngIf="currentUser">{{currentUser.username}}</span>
-    <span class="example-spacer"></span>
-    <button mat-raised-button color="primary" *ngIf="!currentUser" (click)="navigateToLogin()">login</button>
-    <button mat-raised-button color="primary" *ngIf="!currentUser" (click)="navigateToSignUp()">signup</button>
-    <button mat-raised-button color="primary" *ngIf="currentUser && userType=='ADMIN'" (click)="navigateToRegisterTravelAgent()">Register Agent</button>
-    <button mat-raised-button color="primary" *ngIf="currentUser && userType=='ADMIN'" (click)="navigateToRegisterPackage()">Register Package</button>
+        <mat-icon>airport_shuttle</mat-icon>
+        <span>My App</span>
+        <span class="example-spacer"></span>
+        <ul class="center-navitem">
+            <li>Home</li>
+            <li>About</li>
+        </ul>
+        <span *ngIf="currentUser">{{currentUser.username}}</span>
+        <span class="example-spacer"></span>
+        <button mat-raised-button color="primary" *ngIf="!currentUser" (click)="navigateToLogin()">login</button>
+        <button mat-raised-button color="primary" *ngIf="!currentUser" (click)="navigateToSignUp()">signup</button>
+        <button mat-raised-button color="primary" *ngIf="currentUser && userType=='ADMIN'"
+            (click)="navigateToRegisterTravelAgent()">Register Agent</button>
+        <button mat-raised-button color="primary" *ngIf="currentUser && userType=='ADMIN'"
+            (click)="navigateToRegisterPackage()">Register Package</button>
 
-    <button mat-raised-button color="primary" *ngIf="currentUser && userType=='TRAVELAGENT'" (click)="navigateToRegisterQuide()">Register Quide</button>
-    <button mat-raised-button color="primary" *ngIf="currentUser && userType=='USER'" (click)="navigateToRegisteredPackage()">RegisteredPackage</button>
-    <button mat-raised-button color="primary"  *ngIf="currentUser" (click)="logout()">logout</button>
-</mat-toolbar-row>
-    
+        <button mat-raised-button color="primary" *ngIf="currentUser && userType=='TRAVELAGENT'"
+            (click)="navigateToRegisterQuide()">Register Quide</button>
+        <button mat-raised-button color="primary" *ngIf="currentUser && userType=='USER'"
+            (click)="navigateToRegisteredPackage()">RegisteredPackage</button>
+        <button mat-raised-button color="primary" *ngIf="currentUser" (click)="logout()">logout</button>
+    </mat-toolbar-row>
+
 </mat-toolbar>
-
