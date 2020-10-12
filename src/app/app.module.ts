@@ -65,7 +65,7 @@ const routes: Routes = [
   {path:'anonymousNotification',component:AnonymousNotificationComponent,canActivate: [AuthGuard],data: { roles: ['ADMIN']}},
   {path:'addQuide',component:AddQuideComponent, canActivate: [AuthGuard],data: { roles: ['TRAVELAGENT']}},
   {path:'quidePersonalNotification',component:QuidePersonalNotificationComponent,canActivate: [AuthGuard],data: { roles: ['QUIDE']}},
-  {path:'trackUser',component:TrackUserComponent}
+  {path:'trackUser',component:TrackUserComponent,canActivate: [AuthGuard],data: { roles: ['ADMIN']}}
 ]
 
 @NgModule({
