@@ -39,6 +39,16 @@ export class NavigationComponent implements OnInit {
   navigateToRegisterPackage(){
     this.router.navigate(["/registerPackage"])
   }
+  navigateToAnonymousNotification(){
+    this.router.navigate(["/anonymousNotification"])
+  }
+  navigateToAddQuide(){
+    this.router.navigate(["/addQuide"])
+  }
+
+  navigateToQuideNotification(){
+    this.router.navigate(['/quidePersonalNotification'])
+  }
 
   
   logout(){

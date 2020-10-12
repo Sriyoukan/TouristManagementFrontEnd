@@ -3,29 +3,31 @@
     <img style="width: 100%;" class="image-dashboard" src="./../../../assets/images/image1.jpg">
 </div>
 <br>
+<form [formGroup]="userDetailForm" (ngSubmit)="onSubmit()">
 <div class="container inquiry-container col-md-11" style="margin-top: 50px;">
  <ul class="list-group list-group-horizontal">
   <li class="list-group-item list-group-item-dark cardtitlefont">
     <b>Plan Your Holiday</b>
   </li>
   <li class="list-group-item list-group-item-success ">
-    <input class="input1" type="text" placeholder="My Name" >
+    <input class="input1" type="text" placeholder="My Name" formControlName="name" >
   </li>
   <li class="list-group-item list-group-item-success ">
-      <input class="input1" type="text" placeholder="My Number" >
+      <input class="input1" type="text" placeholder="My Number" formControlName="mobileNo" >
   </li>
   <li class="list-group-item list-group-item-success">
-      <input class="input1" type="text" placeholder="My Email" >
+      <input class="input1" type="text" placeholder="My Email" formControlName="email" >
   </li>
   <li class="list-group-item list-group-item-success">
-      <input class="input1" type="text" placeholder="My Country" >
+      <input class="input1" type="text" placeholder="My Country" formControlName="country">
   </li>
   <li class="list-group-item list-group-item-success">
-      <button class="btn btn-primary btn-sm">Contact Me</button>
+      <button type="submit" class="btn btn-primary btn-sm">Contact Me</button>
 
   </li>
  </ul>
 </div>
+</form>
 <br><br>
 <div class="container" style="margin-top: 50px;">
     <div class="row">

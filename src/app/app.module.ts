@@ -38,6 +38,9 @@ import {AuthGuard} from './auth.guard';
 
 import {AlertComponent} from './alert/alert.component';
 import { CommonModule } from '@angular/common';
+import { AnonymousNotificationComponent } from './anonymous-notification/anonymous-notification.component';
+import { AddQuideComponent } from './add-quide/add-quide.component';
+import { QuidePersonalNotificationComponent } from './quide-personal-notification/quide-personal-notification.component';
 
 
 
@@ -56,7 +59,10 @@ const routes: Routes = [
   {path:'registerQuide',component:RegisterQuideComponent,canActivate: [AuthGuard],data: { roles: ['TRAVELAGENT']}},
   {path:'registeredPackage',component:RegisteredPackageComponent,canActivate: [AuthGuard],data: { roles: ['USER']}},
   {path:'registerPackage',component:RegisterPackageComponent,canActivate: [AuthGuard],data: { roles: ['ADMIN']}},
-  {path:'QUIDE', component:QuideComponent,canActivate: [AuthGuard],data: { roles: ['QUIDE']}}
+  {path:'QUIDE', component:QuideComponent,canActivate: [AuthGuard],data: { roles: ['QUIDE']}},
+  {path:'anonymousNotification',component:AnonymousNotificationComponent,canActivate: [AuthGuard],data: { roles: ['ADMIN']}},
+  {path:'addQuide',component:AddQuideComponent, canActivate: [AuthGuard],data: { roles: ['TRAVELAGENT']}},
+  {path:'quidePersonalNotification',component:QuidePersonalNotificationComponent,canActivate: [AuthGuard],data: { roles: ['QUIDE']}}
 ]
 
 @NgModule({
@@ -77,7 +83,10 @@ const routes: Routes = [
     HomeComponent,
     NotificationComponent,
     QuideComponent,
-    AlertComponent
+    AlertComponent,
+    AnonymousNotificationComponent,
+    AddQuideComponent,
+    QuidePersonalNotificationComponent
   ],
   imports: [
     BrowserModule,

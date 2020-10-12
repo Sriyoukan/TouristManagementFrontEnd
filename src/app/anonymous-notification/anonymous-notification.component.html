@@ -1,0 +1,25 @@
+<app-navigation [currentUser]="currentUser" [userType]="userType"></app-navigation>
+
+<div fxLayout="row wrap" fxLayoutGap="20px">
+    <ul *ngFor="let b of notifications">
+        
+    
+        <mat-card style="width: 800px; background-size: cover; margin-top: 20px;" >
+            
+            <h6>{{b.name}}</h6>
+            <mat-card-subtitle> {{b.email}}</mat-card-subtitle>
+            <mat-card-subtitle> {{b.mobileNo}}</mat-card-subtitle>
+            <mat-card-subtitle> {{b.country}}</mat-card-subtitle>
+            <span class="example-fill-remaining-space"></span>
+
+            
+          
+            
+          </mat-card>
+          
+        
+    
+    
+    </ul>
+    </div>
+

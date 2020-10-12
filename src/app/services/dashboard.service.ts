@@ -103,5 +103,22 @@ export class DashboardService {
     return this.http.post<any>(`${this.apiUrl}/deleteReview`,{id})
   }
 
+  sendDetailsToAdmin(name,email,mobileNo,country){
+    return this.http.post<any>(`${this.apiUrl}/anonymousNotification`,{name,email,mobileNo,country})
+  }
+
+  getAllAnonymousNotification(){
+    return this.http.get<any>(`${this.apiUrl}/getAnonymousNotification`)
+  }
+
+  setQuide(packId,userId){
+    return this.http.post<any>(`${this.apiUrl}/assignQuideToTour`,{packId,userId})
+
+  }
+
+  getAllQuidePersonalNotification(email){
+    return this.http.post<any>(`${this.apiUrl}/getPersonalNotification`,{email})
+  }
+
 
 }

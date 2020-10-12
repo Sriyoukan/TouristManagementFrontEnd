@@ -9,6 +9,9 @@
     <button mat-raised-button color="primary" *ngIf="!currentUser" (click)="navigateToSignUp()">signup</button>
     <button mat-raised-button color="primary" *ngIf="currentUser && userType=='ADMIN'" (click)="navigateToRegisterTravelAgent()">Register Agent</button>
     <button mat-raised-button color="primary" *ngIf="currentUser && userType=='ADMIN'" (click)="navigateToRegisterPackage()">Register Package</button>
+    <button mat-raised-button color="primary" *ngIf="currentUser && userType=='ADMIN'" (click)="navigateToAnonymousNotification()">AnonymousNotification</button>
+    <button mat-raised-button color="primary" *ngIf="currentUser && userType=='TRAVELAGENT'" (click)="navigateToAddQuide()">Add Quide</button>
+    <button mat-raised-button color="primary" *ngIf="currentUser && userType=='QUIDE'" (click)="navigateToQuideNotification()">Notifications</button>
 
     <button mat-raised-button color="primary" *ngIf="currentUser && userType=='TRAVELAGENT'" (click)="navigateToRegisterQuide()">Register Quide</button>
     <button mat-raised-button color="primary" *ngIf="currentUser && userType=='USER'" (click)="navigateToRegisteredPackage()">RegisteredPackage</button>
