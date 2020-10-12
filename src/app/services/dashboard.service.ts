@@ -120,5 +120,13 @@ export class DashboardService {
     return this.http.post<any>(`${this.apiUrl}/getPersonalNotification`,{email})
   }
 
+  setCordinate(lat,lon){
+    return this.http.post<any>(`${this.apiUrl}/saveCordinate`,{lat,lon})
+  }
+
+  getCordinate(){
+    return this.http.get<any>(`${this.apiUrl}/getCordinate`)
+  }
+
 
 }

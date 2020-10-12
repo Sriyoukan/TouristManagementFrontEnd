@@ -35,12 +35,14 @@ import { HomeComponent } from './home/home/home.component';
 import { NotificationComponent } from './notification/notification/notification.component';
 import { QuideComponent } from './quide/quide/quide.component';
 import {AuthGuard} from './auth.guard';
-
+import { AgmCoreModule } from '@agm/core';
 import {AlertComponent} from './alert/alert.component';
 import { CommonModule } from '@angular/common';
 import { AnonymousNotificationComponent } from './anonymous-notification/anonymous-notification.component';
 import { AddQuideComponent } from './add-quide/add-quide.component';
 import { QuidePersonalNotificationComponent } from './quide-personal-notification/quide-personal-notification.component';
+import { TrackUserComponent } from './track-user/track-user.component';
+
 
 
 
@@ -62,7 +64,8 @@ const routes: Routes = [
   {path:'QUIDE', component:QuideComponent,canActivate: [AuthGuard],data: { roles: ['QUIDE']}},
   {path:'anonymousNotification',component:AnonymousNotificationComponent,canActivate: [AuthGuard],data: { roles: ['ADMIN']}},
   {path:'addQuide',component:AddQuideComponent, canActivate: [AuthGuard],data: { roles: ['TRAVELAGENT']}},
-  {path:'quidePersonalNotification',component:QuidePersonalNotificationComponent,canActivate: [AuthGuard],data: { roles: ['QUIDE']}}
+  {path:'quidePersonalNotification',component:QuidePersonalNotificationComponent,canActivate: [AuthGuard],data: { roles: ['QUIDE']}},
+  {path:'trackUser',component:TrackUserComponent}
 ]
 
 @NgModule({
@@ -86,7 +89,8 @@ const routes: Routes = [
     AlertComponent,
     AnonymousNotificationComponent,
     AddQuideComponent,
-    QuidePersonalNotificationComponent
+    QuidePersonalNotificationComponent,
+    TrackUserComponent
   ],
   imports: [
     BrowserModule,
@@ -107,7 +111,11 @@ const routes: Routes = [
     MatTabsModule,
     MatDialogModule,
     
-    CommonModule
+    CommonModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyD_gQGzi-IDe-KM69qlbUsOmKTvhuIscjg'
+     
+    })
     
 
 

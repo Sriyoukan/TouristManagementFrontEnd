@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DashboardService} from './../../services/dashboard.service';
 import {AuthService} from './../../services/auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-registered-package',
@@ -12,7 +13,7 @@ export class RegisteredPackageComponent implements OnInit {
   userType:any
   registeredPackage:any;
 
-  constructor(private dashBoardServices:DashboardService,private authServices:AuthService) { 
+  constructor(private dashBoardServices:DashboardService,private authServices:AuthService,private router:Router) { 
     this.authServices.currentUser.subscribe(x=>this.currentUser=x)
     this.authServices.currentUserType.subscribe(x=>this.userType=x)
     
@@ -30,5 +31,6 @@ export class RegisteredPackageComponent implements OnInit {
     })
     
   }
+ 
 
 }

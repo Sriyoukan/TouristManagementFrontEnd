@@ -91,6 +91,10 @@ export class AdminComponent implements OnInit {
     },(err)=>{this.alertService.error("Some error occured")})
   }
 
+  navigateToTrack(){
+    this.router.navigate(["/trackUser"])
+  }
+
 
 }
 @Component({
@@ -156,4 +160,5 @@ removeHotel(hotel){
   let index=this.hotelsAvailableArray.indexOf(hotel)
   this.hotelsAvailableArray.splice(index,1)
  }
+ 
 }
