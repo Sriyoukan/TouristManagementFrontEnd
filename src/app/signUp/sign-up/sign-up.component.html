@@ -8,22 +8,50 @@
         <mat-form-field>
           <input type="text" matInput placeholder="Name" formControlName="name">
         </mat-form-field>
+        <mat-error *ngIf="signUpForm.controls['name'].errors?.required && signUpForm.controls['name'].touched"> 
+          You must fill this field 
+        </mat-error>
       </p>
   <p>
     <mat-form-field>
       <input type="text" matInput placeholder="Email" formControlName="email">
     </mat-form-field>
+    <mat-error *ngIf="signUpForm.controls['email'].errors?.required && signUpForm.controls['email'].touched"> 
+      You must fill this field 
+    </mat-error>
+   <mat-error *ngIf="signUpForm.controls['email'].errors?.pattern && signUpForm.controls['email'].touched"> 
+      Enter a valid email with requested pattern 
+   </mat-error>
+   <mat-error *ngIf="signUpForm.controls['email'].errors?.minLength && signUpForm.controls['email'].touched"> 
+      Email should have minimum 8 characters 
+    </mat-error>
   </p>
   
   <p>
     <mat-form-field>
       <input type="text" matInput placeholder="MobileNo" formControlName="mobileNo">
     </mat-form-field>
+    <mat-error *ngIf="signUpForm.controls['mobileNo'].errors?.required && signUpForm.controls['mobileNo'].touched"> 
+      You must fill this field 
+    </mat-error>
+    <mat-error *ngIf="signUpForm.controls['mobileNo'].errors?.pattern && signUpForm.controls['mobileNo'].touched"> 
+    Enter a valid Mobile Number
+    </mat-error>
   </p>
   <p>
     <mat-form-field>
       <input type="password" matInput placeholder="Password" formControlName="password">
     </mat-form-field>
+
+    <mat-error *ngIf="signUpForm.controls['password'].errors?.required && signUpForm.controls['password'].touched"> 
+      You must fill this field 
+    </mat-error>
+    <mat-error *ngIf="signUpForm.controls['password'].errors?.minLength && signUpForm.controls['password'].touched"> 
+    Enter a password with  more than 8 letters
+    </mat-error>
+    <mat-error *ngIf= "signUpForm.controls['password'].errors?.pattern && signUpForm.controls['password'].touched"> 
+     Password should contain Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
+    </mat-error>
   </p>
   
   <p class="button">

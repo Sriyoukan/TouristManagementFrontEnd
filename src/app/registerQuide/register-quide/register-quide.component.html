@@ -7,17 +7,44 @@
         <mat-form-field>
           <input type="text" matInput placeholder="Name" formControlName="name">
         </mat-form-field>
+        <mat-error *ngIf="registerQuideForm.controls['name'].errors?.required && registerQuideForm.controls['name'].touched"> 
+          You must fill this field 
+        </mat-error>
       </p>
   <p>
     <mat-form-field>
       <input type="text" matInput placeholder="Email" formControlName="email">
     </mat-form-field>
+    <mat-error *ngIf="registerQuideForm.controls['email'].errors?.required && registerQuideForm.controls['email'].touched"> 
+      You must fill this field 
+    </mat-error>
+   <mat-error *ngIf="registerQuideForm.controls['email'].errors?.pattern && registerQuideForm.controls['email'].touched"> 
+      Enter a valid email with requested pattern 
+   </mat-error>
+   <mat-error *ngIf="registerQuideForm.controls['email'].errors?.minLength && registerQuideForm.controls['email'].touched"> 
+      Email should have minimum 8 characters 
+    </mat-error>
   </p>
   
   <p>
     <mat-form-field>
       <input type="text" matInput placeholder="MobileNo" formControlName="mobileNo">
     </mat-form-field>
+    <mat-error *ngIf="registerQuideForm.controls['mobileNo'].errors?.required && registerQuideForm.controls['mobileNo'].touched"> 
+      You must fill this field 
+    </mat-error>
+    <mat-error *ngIf="registerQuideForm.controls['mobileNo'].errors?.pattern && registerQuideForm.controls['mobileNo'].touched"> 
+    Enter a valid Mobile Number
+    </mat-error>
+    <mat-error *ngIf="registerQuideForm.controls['password'].errors?.required && registerQuideForm.controls['password'].touched"> 
+      You must fill this field 
+    </mat-error>
+    <mat-error *ngIf="registerQuideForm.controls['password'].errors?.minLength && registerQuideForm.controls['password'].touched"> 
+    Enter a password with  more than 8 letters
+    </mat-error>
+    <mat-error *ngIf= "registerQuideForm.controls['password'].errors?.pattern && registerQuideForm.controls['password'].touched"> 
+     Password should contain Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
+    </mat-error>
   </p>
   <p>
     <mat-form-field>

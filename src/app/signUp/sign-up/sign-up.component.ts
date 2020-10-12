@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from './../../services/auth.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder,FormControl, Validators, MinLengthValidator } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import {AlertService} from './../../services/alert.service';
 @Component({
@@ -17,9 +17,9 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
     this.signUpForm = this.formBuilder.group({
       name:[null,Validators.required],
-      email:[null,Validators.required],
-      mobileNo:[null,Validators.required],
-      password:[null,Validators.required]
+      email: new FormControl('',[Validators.required,Validators.minLength(8), Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)]),
+      mobileNo:new FormControl(null,[Validators.required,Validators.pattern("[0-9].{10,}")]),
+      password: new FormControl(null,[Validators.required,Validators.minLength(8),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)])
     })
   }
   get f(){ return this.signUpForm.controls}
@@ -32,7 +32,7 @@ export class SignUpComponent implements OnInit {
     this.authService.signUp(this.f.name.value,this.f.email.value,this.f.mobileNo.value,this.f.password.value)
     .subscribe((data)=>{
        this.alert=data;
-       this.router.navigate(['/'])
+       this.router.navigate(['/login'])
        this.alertService.success("SuccessFully registered user, now go to login")
     },(err)=>{
       this.alertService.warn('User with this email already exist !');

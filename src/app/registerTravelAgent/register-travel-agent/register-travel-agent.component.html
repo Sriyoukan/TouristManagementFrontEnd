@@ -7,22 +7,50 @@
         <mat-form-field>
           <input type="text" matInput placeholder="Name" formControlName="name">
         </mat-form-field>
+
+        <mat-error *ngIf="registerTravelAgentForm.controls['name'].errors?.required && registerTravelAgentForm.controls['name'].touched"> 
+          You must fill this field 
+        </mat-error>
       </p>
   <p>
     <mat-form-field>
       <input type="text" matInput placeholder="Email" formControlName="email">
     </mat-form-field>
+    <mat-error *ngIf="registerTravelAgentForm.controls['email'].errors?.required && registerTravelAgentForm.controls['email'].touched"> 
+      You must fill this field 
+  </mat-error>
+  <mat-error *ngIf="registerTravelAgentForm.controls['email'].errors?.pattern && registerTravelAgentForm.controls['email'].touched"> 
+      Enter a valid email with requested pattern 
+  </mat-error>
+  <mat-error *ngIf="registerTravelAgentForm.controls['email'].errors?.minLength && registerTravelAgentForm.controls['email'].touched"> 
+      Email should have minimum 8 characters 
+  </mat-error>
   </p>
   
   <p>
     <mat-form-field>
       <input type="text" matInput placeholder="MobileNo" formControlName="mobileNo">
     </mat-form-field>
+    <mat-error *ngIf="registerTravelAgentForm.controls['mobileNo'].errors?.required && registerTravelAgentForm.controls['mobileNo'].touched"> 
+      You must fill this field 
+    </mat-error>
+    <mat-error *ngIf="registerTravelAgentForm.controls['mobileNo'].errors?.pattern && registerTravelAgentForm.controls['mobileNo'].touched"> 
+    Enter a valid Mobile Number
+    </mat-error>
   </p>
   <p>
     <mat-form-field>
       <input type="password" matInput placeholder="Password" formControlName="password">
     </mat-form-field>
+    <mat-error *ngIf="registerTravelAgentForm.controls['password'].errors?.required && registerTravelAgentForm.controls['password'].touched"> 
+      You must fill this field 
+    </mat-error>
+    <mat-error *ngIf="registerTravelAgentForm.controls['password'].errors?.minLength && registerTravelAgentForm.controls['password'].touched"> 
+    Enter a password with  more than 8 letters
+    </mat-error>
+    <mat-error *ngIf= "registerTravelAgentForm.controls['password'].errors?.pattern && registerTravelAgentForm.controls['password'].touched"> 
+     Password should contain Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
+    </mat-error>
   </p>
   
   <p class="button">

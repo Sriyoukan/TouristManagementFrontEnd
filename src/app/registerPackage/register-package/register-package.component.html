@@ -7,6 +7,9 @@
     <mat-form-field>
       <input type="text" matInput placeholder="Name" formControlName="name">
     </mat-form-field>
+    <mat-error *ngIf="registerNewPackageForm.controls['name'].errors?.required && registerNewPackageForm.controls['name'].touched"> 
+      You must fill this field 
+    </mat-error>
   </p>
   <p>
     <mat-form-field>
@@ -24,11 +27,17 @@
     <mat-form-field>
       <input type="text" matInput placeholder="District" formControlName="district">
     </mat-form-field>
+    <mat-error *ngIf="registerNewPackageForm.controls['district'].errors?.required && registerNewPackageForm.controls['district'].touched"> 
+      You must fill this field 
+    </mat-error>
   </p>
   <p>
     <mat-form-field>
       <input type="text" matInput placeholder="ProviderEmail" formControlName="providerEmail">
     </mat-form-field>
+    <mat-error *ngIf="registerNewPackageForm.controls['providerEmail'].errors?.required && registerNewPackageForm.controls['providerEmail'].touched"> 
+      You must fill this field 
+    </mat-error>
   </p>
   <p>
     <mat-form-field>
@@ -41,11 +50,17 @@
     <mat-chip-list    >
         <mat-chip *ngFor="let c of hotelsAvailableArray" color="primary"   selected>{{c}}</mat-chip>
     </mat-chip-list>
+    <mat-error *ngIf="registerNewPackageForm.controls['hotelsAvailable'].errors?.required && registerNewPackageForm.controls['hotelsAvailable'].touched"> 
+      You must fill this field 
+    </mat-error>
   </p>
   <p>
     <mat-form-field>
       <input type="text" matInput placeholder="Transportation Method" formControlName="transportationMethod">
     </mat-form-field>
+    <mat-error *ngIf="registerNewPackageForm.controls['transportationMethod'].errors?.required && registerNewPackageForm.controls['transportationMethod'].touched"> 
+      You must fill this field 
+    </mat-error>
   </p>
 
   <p>
